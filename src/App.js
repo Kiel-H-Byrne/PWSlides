@@ -1,24 +1,40 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import SlideShow from './SlideShow'
+
+
+const xhr = new XMLHttpRequest();
+const spreadsheetId = "1oTI3Aqiq-INhzpIJEBpN8FTZsRbxu4rjOLyp2SW5_D0"
+const spreadsheetRange = "SHOUTOUTS!A:E"
+const GKEY = "AIzaSyAPl9V4veg6kLNlB-kUJLu4ikzJVd6pP54"
+const requestURL = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${spreadsheetRange}?key=${GKEY}`
+// const requestURL = `https://jsonplaceholder.typicode.com/todos`
+
 function App() {
+  const [xhrData, setData] = useState(null)
+  
+  //EVENTS
+  xhr.onload = () => {
+    if (xhr.status >= 200 && xhr.status < 300 ) {
+      // console.log('success!', xhr)
+      setData(JSON.parse(xhr.response))
+    } else {
+      console.log('The Request Failed')
+    }  
+  }
+
+  useEffect(() => {
+    xhr.open('GET', requestURL);
+    xhr.send();
+    return () => {
+      // cleanup
+    };
+  }, [])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SlideShow data={xhrData}/>
     </div>
   );
 }
