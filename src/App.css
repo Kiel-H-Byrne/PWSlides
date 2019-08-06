@@ -31,3 +31,13 @@
     transform: rotate(360deg);
   }
 }
+
+.step {
+  min-width: 100vw; 
+  min-height: 100vh;
+}
+
+.slide-content {
+  margin: 50% 0;
+  
+}

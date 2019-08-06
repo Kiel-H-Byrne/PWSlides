@@ -1,6 +1,4 @@
-import { Impress, Step } from 'react-impressjs';
-
-import React from 'react'
+import React, {useEffect, createRef} from 'react'
 import Slide from './Slide';
 
 
@@ -13,50 +11,60 @@ const defaults = {
   transitionDuration: 1000
 };
 
+let slideData = {
+  x: 0,
+  y: 0,
+  scale: 1
+}
+let entries = Object.entries(slideData)
+
 const slideShowData = (values) => {
+
 //take length of values, return array of x, y, scale.
 //either x or y must increment by some value greather than screenHeight.
 // x can stay constant (straight line), or random
 // y needs to increment by 1024?
-let xVal = 0
-let yVal = 0
-const newArr = values.map((val,idx) => {
-  return {
-    x: xVal,
-    y: yVal+1000,
+
+
+let initPosition = 0;
+
+const newArr = values.map((index) => {
+  let newPosition = {
+    x: 0,
+    y: initPosition,
     scale:1
   }
+  initPosition = initPosition + 1000
 })
-console.log(newArr)
   return newArr
 }
-const SlideShow = ({data}) => (
-  <div>
-  <Impress 
-    fallbackMessage={<p>Sorry, your <b>device or browser</b> doesn't support this very well.</p>}
-    rootData = {defaults}
-    progress>
 
-<Step 
-     >
-        <h1>Name</h1>
-        <hr />
-        <p>Description of Shoutout</p>
-        <h4>Nominee</h4>
-    </Step>
-    <Step 
-    >
-        <h1>Any Element write in Step!</h1>
-        <hr />
-        <p>Made by your <b>Creativity</b> !!</p>
-    </Step>
-    {
-      data && data.values.map( (el,idx) =>(<Slide id={`slide-${idx}`} values={el} />))
-    }
-    </Impress>
+const randColor = () => {
+  const colors = ['rgba(255, 27, 27, 0.8)','rgba(179, 27, 27, 0.8)','rgba(193, 131, 54, 0.8)','rgba(81, 129, 115, 0.8)','rgba(52, 153, 81, 0.8)','rgba(35, 165, 121, .8)','rgba(55, 186, 214, 0.8)','rgba(155, 146, 234, 0.8)'];
+  let randColor = colors[Math.floor(Math.random() * colors.length)]
   
-    {/* {data && console.log(data.values)}  */}
+  return randColor
+}
+
+
+
+
+
+
+
+const SlideShow = ({data}) => {
+
+return (
+  <div id="impress" data-transition-duration="1000">
+    {
+      data && data.values.map( (el,idx) =>(<Slide id={`slide-${idx}`} values={el} idx={idx} key={idx} bgColor={randColor()}/>))
+
+    }
+    
     </div>
 )
+  }
 
 export default SlideShow
+
+

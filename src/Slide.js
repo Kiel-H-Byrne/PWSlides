@@ -1,31 +1,41 @@
-import { Step } from 'react-impressjs';
+import React, {useEffect} from 'react'
+import {Grid, Typography, Divider} from '@material-ui/core'
+let windowWidth = window.innerWidth
+let windowHeight = window.innerHeight
 
+const Slide = (props) => {
+    let {idx, values,bgColor} = props
 
-import React from 'react'
-import PropTypes from 'prop-types'
-
-const defaultData = {
-    x: 0,       // as data-x
-    y: 0,       // as data-y
-    z: 0,       // as data-z
-    rotateX: 0, // as data-rotate-x
-    rotateY: 0, // as data-rotate-y
-    rotateZ: 0, // as data-rotate and data-rotate-z
-    scale: 1    // as data-scale
-  };
-
-const Slide = (...props) => {
+    const slideStyle = {
+        // width: '100vw',
+        // // height: '100vh',
+        padding: 'auto',
+        margin: 'auto ',
+        backgroundColor: bgColor
     
-    console.log(props)
+    }
+
+  useEffect(() => {
+    window.impress().init()
+  }, [])
     return (
         
-        <Step >
-        <h1>Any Element write in Step!</h1>
-        <hr />
-        <p>Made by your <b>Creativity</b> !!</p>
-    </Step>
+        <div container xs={12} className={`step step-${idx}`}  data-rel-x={windowWidth || 0} data-rel-y={0} data-scale="1" style={slideStyle}>
+              <div className="slide-content">
+                <Typography variant="h3" align="center">{values[1]} </Typography>
+              
+                <Divider width="80%" variant="middle" />             
+                <Typography variant="body1" paragraph align="center">{values[2]}</Typography>  
+              
+
+                <Typography variant="overline">{values[4]}</Typography>
+                </div>
+        </div>
+        
+        
+        
+        
     )
 }
-
 
 export default Slide
