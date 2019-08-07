@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import {Typography, Divider} from '@material-ui/core'
+import {Typography, Divider, Grid} from '@material-ui/core'
 import { getMonth, isThisMonth } from 'date-fns'
 import slugify from './slugify'
 
@@ -29,12 +29,12 @@ const Slide = (props) => {
         // data-rotate="45"
         id={slugify(values[1])}
         >
-              <div className="slide-content" >
-                <Typography variant="h3" align="center">{values[1]} </Typography>
-                <Divider width="80%" variant="middle" />             
-                <Typography variant="body1" paragraph align="center">{values[2]}</Typography>  
-                <Typography variant="overline" align="justify">{values[4]}</Typography>
-              </div>
+              <Grid container className="slide-content" >
+                <Grid item  xs={12}> <Typography className="slide-honoree" variant="h2" align="center">{values[1]} </Typography></Grid>
+                <Grid item  xs={12}><Divider width="80%" variant="middle" />  </Grid>           
+                <Grid item  xs={12}><Typography className="slide-shout" variant="body1" paragraph align="center"><i>{values[2]}</i></Typography>  </Grid>
+                <Grid item  xs={12}><Typography className="slide-person" variant="h4" align="right">{values[4]}</Typography></Grid>
+              </Grid>
               <div id="impress-toolbar"></div>
 
         </div>

@@ -120,11 +120,12 @@ a:focus {
 
 
 .slide {
+  font-family: 'Merriweather', serif;
   display: block;
   width: 80vw;
   height: 80vh;
   padding: 5vh;
-
+  font-size: 28px;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, .3);
   border-radius: 10px;
@@ -137,11 +138,20 @@ a:focus {
 }
 
 
-.slide-content {
-  /* margin: 50% 0; */
-  
+.slide-content .slide-shout{
+  position: relative;
+  padding: 3rem 0;
+  font-family: 'Montserrat', sans-serif;
 }
-
+.slide-content .slide-person {
+  font-size: 1em;
+  right: 1em;
+  padding: 3rem 0;
+  
+}.slide-content .slide-shout{
+  padding: 3rem 0;
+  font-size: .8em;
+}
 
 .fallback-message {
   font-family: sans-serif;
