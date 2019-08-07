@@ -7,7 +7,7 @@ import Slide from './Slide';
 
 
 const randColor = () => {
-  const colors = ['rgba(255, 27, 27, 0.8)','rgba(179, 27, 27, 0.8)','rgba(193, 131, 54, 0.8)','rgba(81, 129, 115, 0.8)','rgba(52, 153, 81, 0.8)','rgba(35, 165, 121, .8)','rgba(55, 186, 214, 0.8)','rgba(155, 146, 234, 0.8)','rgba(68, 68, 248, 1)'];
+  const colors = ['#c6d6e3','#5576d1','#6eceb2','#bde9c9','#a6093d','#ff4635','#ff8674','#f8c1b8','#9063cd','#d2c6e6','#808c24','#f7cd00','#e9ec6b'];
   let randColor = colors[Math.floor(Math.random() * colors.length)]
   
   return randColor
@@ -16,14 +16,16 @@ const randColor = () => {
 const SlideShow = ({data}) => {
 
   return (
-    <div id="impress" data-autoplay="9">
+    <div id="impress" data-autoplay="0">
+        {/* 
         <div className="step slide" id="title" data-z="0" data-goto-prev="final">
-        <Grid container> 
-          <Grid item  xs={12}> <Typography className="slide-honoree" variant="h2" align="center" gutterBottom>DCO Shoutouts</Typography></Grid>
+        <Grid container className="slide-content" > 
+          <Grid item  xs={12}> <Typography className="slide-title" align="center" gutterBottom>DCO Shoutouts</Typography></Grid>
           <Divider variant="middle" />
-          <Grid item  xs={12}> <Typography className="slide-person" variant="h4" align="center">{format(new Date(), 'MMMM'	)}</Typography></Grid>
+          <Grid item  xs={12}> <Typography className="slide-date" align="center">{format(new Date(), 'MMMM, YYYY'	)}</Typography></Grid>
         </Grid>
-        </div>
+        </div> 
+        */}
       {
         data && data.values.map( (el,idx) =>(<Slide id={`slide-${idx}`} values={el} idx={idx}  key={idx} bgColor={randColor()}/>))
       }

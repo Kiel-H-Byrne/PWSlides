@@ -1,3 +1,4 @@
+@import "./pwcolors.css";
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -19,6 +20,20 @@ time, mark, audio, video {
     font: inherit;
     vertical-align: baseline;
 }
+
+@font-face {
+  font-family: 'PWCentra';
+  src: local('PWCentra'), url(./fonts/PWCentraNo2-Bold.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'PWCentraLight';
+  src: local('PWCentraLight'), url(./fonts/PWCentraNo2-Light.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'PWSerif';
+  src: local('PWSerif'), url(./fonts/PWSerif.ttf) format('truetype');
+}
+
 body {
   line-height: 1;
 }
@@ -40,7 +55,7 @@ table {
 }
 
 body {
-  font-family: 'PT Sans', sans-serif;
+  /* font-family: 'PT Sans', sans-serif; */
   min-height: 740px;
 
   background: rgb(215, 215, 215);
@@ -90,6 +105,7 @@ a:focus {
 
 
 .step {
+  font-family: 'PWCentra';
   position: relative;
   width: 900px;
   padding: 40px;
@@ -120,11 +136,11 @@ a:focus {
 
 
 .slide {
-  font-family: 'Merriweather', serif;
   display: block;
-  /* width: 80vw;
-  height: 80vh; */
-  padding: 5vh;
+  width: 100%;
+  width: 100vw;
+  height: 100%;
+  height: 100vh;
   font-size: 28px;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, .3);
@@ -133,28 +149,44 @@ a:focus {
 
   /* color: rgb(102, 102, 102); */
   text-shadow: 0 2px 2px rgba(255, 250, 250, .2);
-  font-family: 'raleway', Arial, sans-serif;
-  line-height: 1rem;
+  line-height: 1em;
 }
 
+.slide-content {
+  padding: 2em;
+}
 
+.slide-content .slide-title {
+  font-family:"PWCentra";
+  font-size: 1.6em;
+}
 .slide-content .slide-shout{
   position: relative;
-  padding: 3rem 0;
-  font-family: 'Montserrat', sans-serif;
+  padding: auto 0;
+  font-family: 'PWSerif';
+  font-size: 1.8em;
 }
 .slide-content .slide-person {
-  font-size: 1em;
+  font-family:"PWCentra";
+  padding: 3rem 0;
+  font-size: 1.2em;
   right: 1em;
+}
+.slide-content .slide-honoree {
+  text-shadow: -1px -1px 2px rgba(100,100,100,0.9);
+  font-family:"PWCentra";
   padding: 3rem 0;
-  
-}.slide-content .slide-shout{
+  font-size: 2.4em;
+  right: 1em;
+}
+
+.slide-content .slide-date{
   padding: 3rem 0;
+  font-family:"PWCentra";
   font-size: .8em;
 }
 
 .fallback-message {
-  font-family: sans-serif;
   line-height: 1.3;
 
   width: 780px;
