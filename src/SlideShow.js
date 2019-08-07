@@ -16,7 +16,7 @@ const randColor = () => {
 const SlideShow = ({data}) => {
 
   return (
-    <div id="impress" data-autoplay="0">
+    <div id="impress" data-autoplay="9">
         <div className="step slide" id="title" data-z="0" data-goto-prev="final">
         <Grid container> 
           <Grid item  xs={12}> <Typography className="slide-honoree" variant="h2" align="center" gutterBottom>DCO Shoutouts</Typography></Grid>

@@ -122,8 +122,8 @@ a:focus {
 .slide {
   font-family: 'Merriweather', serif;
   display: block;
-  width: 80vw;
-  height: 80vh;
+  /* width: 80vw;
+  height: 80vh; */
   padding: 5vh;
   font-size: 28px;
   background-color: white;
