@@ -1,10 +1,7 @@
 import React from 'react'
-import {format} from 'date-fns'
 import {Grid, Card, Typography, Link, Divider, CardMedia} from '@material-ui/core'
 
 import Slide from './Slide';
-
-
 
 const randColor = () => {
   const colors = ['#c6d6e3','#5576d1','#6eceb2','#bde9c9','#a6093d','#ff4635','#ff8674','#f8c1b8','#9063cd','#d2c6e6','#808c24','#f7cd00','#e9ec6b'];
@@ -16,8 +13,9 @@ const randColor = () => {
 const SlideShow = ({data}) => {
 
   return (
-    <div id="impress" data-autoplay="0">
+    <div id="impress" data-autoplay="9">
         {/* 
+        First Slide
         <div className="step slide" id="title" data-z="0" data-goto-prev="final">
         <Grid container className="slide-content" > 
           <Grid item  xs={12}> <Typography className="slide-title" align="center" gutterBottom>DCO Shoutouts</Typography></Grid>
@@ -27,8 +25,10 @@ const SlideShow = ({data}) => {
         </div> 
         */}
       {
-        data && data.values.map( (el,idx) =>(<Slide id={`slide-${idx}`} values={el} idx={idx}  key={idx} bgColor={randColor()}/>))
+        data ? data.values.map( (el,idx) =>(<Slide id={`slide-${idx}`} values={el} idx={idx}  key={idx} bgColor={randColor()}/>)) : null
       }
+        {/* 
+        Last Slide
         <div className="step slide" id="final" data-z="0" data-goto-next="title" >
         <Card elevation={0}> 
           <Grid item  xs={12}> <Typography className="slide-shout" variant="h3" align="center">No More Shoutouts.</Typography></Grid>
@@ -40,7 +40,8 @@ const SlideShow = ({data}) => {
           style={{height: '300px', width: '300px', margin: '0 auto'}}/> 
           </Grid>
         </Card>
-        </div>
+        </div> 
+        */}
 
       </div>
   )

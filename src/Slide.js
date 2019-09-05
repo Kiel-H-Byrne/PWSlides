@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import {Typography, Divider, Grid} from '@material-ui/core'
-import { getMonth, isThisMonth, format } from 'date-fns'
+import { isThisMonth, format, differenceInDays } from 'date-fns'
 import slugify from './slugify'
 
 //get current month, 
@@ -15,9 +15,13 @@ const Slide = (props) => {
 
   useEffect(() => {
     window.impress().init()
-  }, [])
+  }, [values])
+let today = new Date()
+let shoutDate = new Date(values[0])
+let filter_isThisMonth = isThisMonth(new Date(values[0]))
+let filter = differenceInDays(today, shoutDate) <= 30
 
-  if (isThisMonth(new Date(values[0]))) {
+  if (filter) {
     return (
         <div 
         className={`step slide`}  

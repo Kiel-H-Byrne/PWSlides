@@ -53,11 +53,14 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
+html: {
+  height: 100%;
+  width: 100%;
+}
 body {
   /* font-family: 'PT Sans', sans-serif; */
   min-height: 740px;
-
+  height: 100%;
   background: rgb(215, 215, 215);
   background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 500, from(rgb(240, 240, 240)), to(rgb(190, 190, 190)));
   background: -webkit-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
@@ -97,7 +100,6 @@ a:focus {
   background: rgba(255,255,255,1);
   text-shadow: -1px -1px 2px rgba(100,100,100,0.5);
 }
- 
 
 // =================
 
@@ -136,11 +138,11 @@ a:focus {
 
 
 .slide {
+  position: fixed;
   display: block;
-  width: 100%;
-  width: 100vw;
-  height: 100%;
-  height: 100vh;
+  /* width: 100%; */
+  min-width: 100vw;
+  min-height: 100vh;
   font-size: 28px;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, .3);
@@ -158,13 +160,15 @@ a:focus {
 
 .slide-content .slide-title {
   font-family:"PWCentra";
+  color: rgba(75, 75, 75, .8);
   font-size: 1.6em;
 }
 .slide-content .slide-shout{
   position: relative;
   padding: auto 0;
   font-family: 'PWSerif';
-  font-size: 1.8em;
+  font-size: 1.3em;
+  font-size: 2..5vw;
 }
 .slide-content .slide-person {
   font-family:"PWCentra";
@@ -227,4 +231,9 @@ a:focus {
   bottom: 1px;
   text-align: left;
   opacity: 0.6;
+}
+
+
+@media only screen and (max-width:680px) {
+  .slide {}
 }

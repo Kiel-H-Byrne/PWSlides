@@ -30,7 +30,7 @@ function App() {
     return () => {
       // cleanup
     };
-  }, [])
+  }, [requestURL])
   return (
     <div className="App">
       <SlideShow data={xhrData}/>
