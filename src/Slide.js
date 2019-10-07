@@ -25,11 +25,11 @@ let filter = differenceInDays(today, shoutDate) <= 30
     return (
         <div 
         className={`step slide`}  
-        data-rel-x="1.2w"
-        data-rel-y={0} 
-        data-rel-z=".5w"
-        data-scale="1" 
         style={slideStyle}
+        data-rel-x="1w"
+        data-rel-y= "0" 
+        // data-rel-z="1w"
+        // data-scale="1" 
         // data-rotate="45"
         id={slugify(values[1])}
         >
@@ -44,14 +44,11 @@ let filter = differenceInDays(today, shoutDate) <= 30
                 <Grid item xs={12}><Typography className="slide-person" align="right">- {values[4]}</Typography></Grid>
                 <Grid item xs={12}><Typography className="slide-date" align="center">{format(new Date(values[0]), 'MMMM Do, YYYY')}</Typography></Grid>
               </Grid>
-              <div id="impress-toolbar"></div>
 
         </div>
     )
   } else {
-    return (
-      <div ></div>
-    )
+    return null
   }
 }
 

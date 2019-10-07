@@ -25,12 +25,15 @@ function App() {
   }
 
   useEffect(() => {
+    console.log(requestURL)
     xhr.open('GET', requestURL);
     xhr.send();
     return () => {
       // cleanup
     };
-  }, [requestURL])
+  }, [])
+
+
   return (
     <div className="App">
       <SlideShow data={xhrData}/>
