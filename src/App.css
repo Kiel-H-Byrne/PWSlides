@@ -54,13 +54,19 @@ table {
   border-spacing: 0;
 }
 html: {
+  font-size: 16px !important;
   height: 100%;
   width: 100%;
 }
 body {
   /* font-family: 'PT Sans', sans-serif; */
-  min-height: 740px;
-  height: 100%;
+  position: relative;
+  top:0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  /* min-height: 740px; */
+  /* height: 100%; */
   background: rgb(215, 215, 215);
   background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 500, from(rgb(240, 240, 240)), to(rgb(190, 190, 190)));
   background: -webkit-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
@@ -86,7 +92,7 @@ a {
   padding: 0 0.1em;
   background: rgba(255,255,255,0.5);
   text-shadow: -1px -1px 2px rgba(100,100,100,0.9);
-  border-radius: 0.2em;
+  border-radius: 0.2rem;
 
   -webkit-transition: 0.5s;
   -moz-transition:    0.5s;
@@ -105,13 +111,16 @@ a:focus {
 
 //IMPRESS CSS
 
-
+.impress-mobile {
+  position: relative;
+  height: 100vh;
+}
 .step {
   font-family: 'PWCentra';
   position: relative;
-  width: 900px;
-  padding: 40px;
-  margin: 20px auto;
+  /* width: 900px; */
+  /* padding: 40px; */
+  /* margin: 20px auto; */
 
   -webkit-box-sizing: border-box;
   -moz-box-sizing:    border-box;
@@ -120,8 +129,8 @@ a:focus {
   box-sizing:         border-box;
 
   font-family: 'raleway', georgia, serif;
-  font-size: 48px;
-  line-height: 1.5;
+  /* font-size: 48px; */
+  /* line-height: 1.5; */
 }
 .impress-enabled .step {
   margin: 0;
@@ -134,69 +143,75 @@ a:focus {
   transition:         opacity 1s;
 }
 
-.impress-enabled .step.active { opacity: 1 }
+.impress-enabled .step.active { 
+  
+  overflow-y: auto;
+  opacity: 1 
+}
 
 .slide {
-  width: 500px;
-  min-width: 100vw;
-  max-height: 100vh;
-  font-size: 28px;
+  
+  width: 98vw;
+  height: 98vh;
+  font-size: 1rem;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, .3);
-  border-radius: 10px;
+  border-radius: 7px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
 
   /* color: rgb(102, 102, 102); */
   text-shadow: 0 2px 2px rgba(255, 250, 250, .2);
-  line-height: 1em;
+  line-height: 1rem;
 }
 
 .slide-content {
-  padding: 2em;
+  padding: 1rem;
+  height: 100%;
+}
+
+.slide-logo {
+  display:flex;
+  margin: 1rem auto;
+  height: 2rem;
 }
 
 .slide-content .slide-title {
   font-family:"PWCentra";
   color: rgba(75, 75, 75, .8);
-  font-size: 1.6em;
+  font-size: 1.6rem;
 }
 .slide-content .slide-shout{
+  
   position: relative;
   padding: auto 0;
   font-family: 'PWSerif';
-  font-size: 1.3em;
-  font-size: 2..5vw;
+  font-size: 2.2rem;
 }
 .slide-content .slide-person {
   font-family:"PWCentra";
-  padding: 3rem 0;
-  font-size: 1.2em;
-  right: 1em;
+  padding: 1rem 0;
+  font-size: 1.1rem;
 }
 .slide-content .slide-honoree {
   text-shadow: -1px -1px 2px rgba(100,100,100,0.9);
   font-family:"PWCentra";
-  padding: 3rem 0;
-  font-size: 2.4em;
-  right: 1em;
+  padding: 1.5rem 0;
+  font-size: 2.5rem;
 }
 
 .slide-content .slide-date{
-  padding: 3rem 0;
   font-family:"PWCentra";
-  font-size: .8em;
+  font-size: 1rem;
 }
 
 .fallback-message {
-  line-height: 1.3;
-
-  width: 780px;
+  line-height: 1.3rem;
+  max-width: 667px;
   padding: 10px 10px 0;
   margin: 20px auto;
-
   border: 1px solid #E4C652;
   border-radius: 10px;
-  background: #EEDC94;
+  background: rgb(211, 204, 181);
 }
 
 .fallback-message p {
@@ -204,7 +219,7 @@ a:focus {
 }
 
 .impress-supported .fallback-message {
-  display: none;
+  display: none;  
 }
 
 .impress-progressbar {
@@ -232,16 +247,20 @@ a:focus {
 
 
 @media only screen and (max-width:680px) {
+  html {
+    font-size: 12px !important;
+  }
   .slide {
-    height: 100vh;
+    /* height: 100vh;
     width: 100vw;
-    transform: scale(.5)
+    transform: scale(.5) */
   }
 }
 @media only screen and (max-width:1024px) {
+  
   .slide {
-    height: 100vh;
+    /* height: 100vh;
     width: 100vw;
-    transform: scale(.5)
+    transform: scale(.5) */
   }
 }

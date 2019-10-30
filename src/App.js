@@ -12,31 +12,40 @@ const requestURL = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetI
 // const requestURL = `https://jsonplaceholder.typicode.com/todos`
 
 function App() {
-  const [xhrData, setData] = useState(null)
+  const [slideData, setSlideData] = useState(null)
   
+
   //EVENTS
-  xhr.onload = () => {
-    if (xhr.status >= 200 && xhr.status < 300 ) {
-      // console.log('success!', xhr)
-      setData(JSON.parse(xhr.response))
-    } else {
-      console.log('The Request Failed')
-    }  
+  
+  const getShoutouts = async function() {
+    try {
+      await fetch(requestURL).then(data => data.json()).then(results => setSlideData(results))  
+    } catch (error) {
+      console.log(error)
+    }
   }
 
+  // xhr.onload = () => {
+  //   if (xhr.status >= 200 && xhr.status < 300 ) {
+      
+  //     setData(JSON.parse(xhr.response))
+  //   } else {
+  //     console.log('The Request Failed')
+  //   }  
+  // }
+
   useEffect(() => {
-    console.log(requestURL)
-    xhr.open('GET', requestURL);
-    xhr.send();
-    return () => {
-      // cleanup
-    };
+    //WILL RUN IMMEDIATELY ONCE
+    getShoutouts()
+    const timer = setTimeout( () => {
+      //WILL RUN EVERY 24 HOURS (86400 seconds)
+      getShoutouts()
+    }, 86400000);
+    return () => clearTimeout(timer)
   }, [])
-
-
   return (
     <div className="App">
-      <SlideShow data={xhrData}/>
+      <SlideShow data={slideData}/>
     </div>
   );
 }

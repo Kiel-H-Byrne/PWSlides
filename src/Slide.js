@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import {Typography, Divider, Grid} from '@material-ui/core'
-import { isThisMonth, format, differenceInDays } from 'date-fns'
+import { format, differenceInDays } from 'date-fns'
 import slugify from './slugify'
 
 //get current month, 
@@ -18,7 +18,6 @@ const Slide = (props) => {
   }, [values])
 let today = new Date()
 let shoutDate = new Date(values[0])
-let filter_isThisMonth = isThisMonth(new Date(values[0]))
 let filter = differenceInDays(today, shoutDate) <= 30
 
   if (filter) {
@@ -33,12 +32,12 @@ let filter = differenceInDays(today, shoutDate) <= 30
         // data-rotate="45"
         id={slugify(values[1])}
         >
-              <Grid container className="slide-content" >
-                <Grid item xs={12} alignContent="stretch">
-                  <Grid item><img src="/img/PW-logo-black.svg" width="200px" style={{display:'flex', margin: '1rem auto'}} /></Grid>
+              <Grid container className="slide-content" justify="space-evenly" alignItems="stretch">
+                <Grid item xs={12}>
+                  <Grid item><img src="/img/PW-logo-black.svg" width="200px" className="slide-logo" /></Grid>
                   <Grid item><Typography className="slide-title" align="center">Shout Out</Typography></Grid>
                 </Grid>
-                <Grid item xs={12}><Divider width="80%" variant="middle"/>  </Grid>           
+                <Grid item xs={12}><Divider variant="middle"/>  </Grid>           
                 <Grid item xs={12}><Typography className="slide-honoree" align="center">{values[1]} </Typography></Grid>
                 <Grid item xs={12}><Typography className="slide-shout" paragraph align="center"><i>{values[2]}</i></Typography>  </Grid>
                 <Grid item xs={12}><Typography className="slide-person" align="right">- {values[4]}</Typography></Grid>
