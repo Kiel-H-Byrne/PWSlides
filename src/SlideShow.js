@@ -1,20 +1,33 @@
-import React from 'react'
-import {Grid, Card, Typography, Link, Divider, CardMedia} from '@material-ui/core'
+import React from "react";
 
-import Slide from './Slide';
+import Slide from "./Slide";
 
 const randColor = () => {
-  const colors = ['#c6d6e3','#5576d1','#6eceb2','#bde9c9','#a6093d','#ff4635','#ff8674','#f8c1b8','#9063cd','#d2c6e6','#808c24','#f7cd00','#e9ec6b'];
-  let randColor = colors[Math.floor(Math.random() * colors.length)]
-  
-  return randColor
-}
+  const colors = [
+    "#c6d6e3",
+    "#5576d1",
+    "#6eceb2",
+    "#bde9c9",
+    "#a6093d",
+    "#ff4635",
+    "#ff8674",
+    "#f8c1b8",
+    "#9063cd",
+    "#d2c6e6",
+    "#808c24",
+    "#f7cd00",
+    "#e9ec6b"
+  ];
+  let randColor = colors[Math.floor(Math.random() * colors.length)];
 
-const SlideShow = ({data}) => {
+  return randColor;
+};
 
+const SlideShow = ({ data }) => {
+  // console.log(data);
   return (
     <div id="impress" data-autoplay="9">
-        {/* 
+      {/* 
         First Slide
         <div className="step slide" id="title" data-z="0" data-goto-prev="final">
         <Grid container className="slide-content" > 
@@ -24,10 +37,18 @@ const SlideShow = ({data}) => {
         </Grid>
         </div> 
         */}
-      {
-        data ? data.values.map( (el,idx) =>(<Slide id={`slide-${idx}`} values={el} idx={idx}  key={idx} bgColor={randColor()}/>)) : null
-      }
-        {/* 
+      {data
+        ? data.values.map((el, idx) => (
+            <Slide
+              id={`slide-${idx}`}
+              values={el}
+              idx={idx}
+              key={idx}
+              bgColor={randColor()}
+            />
+          ))
+        : null}
+      {/* 
         Last Slide
         <div className="step slide" id="final" data-z="0" data-goto-next="title" >
         <Card elevation={0}> 
@@ -42,11 +63,8 @@ const SlideShow = ({data}) => {
         </Card>
         </div> 
         */}
+    </div>
+  );
+};
 
-      </div>
-  )
-}
-
-export default SlideShow
-
-
+export default SlideShow;
