@@ -58,12 +58,12 @@ const Slide = props => {
           </Grid>
           <Grid item xs={12}>
             <Typography className="slide-honoree" align="center">
-              {values[1]}{" "}
+              {values[2]}{" "}
             </Typography>
           </Grid>
           <Grid item xs={12}>
             <Typography className="slide-shout" paragraph align="center">
-              <i>{values[2]}</i>
+              <i>{values[3]}</i>
             </Typography>{" "}
           </Grid>
           <Grid item xs={12}>
