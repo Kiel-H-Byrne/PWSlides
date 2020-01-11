@@ -28,7 +28,7 @@ const Slide = props => {
         data-rel-x="1w"
         data-rel-y="0"
         // data-rel-z="1w"
-        // data-scale="1"
+        data-scale="1"
         // data-rotate="45"
         id={slugify(values[2])}>
         <Grid
