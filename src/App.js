@@ -31,10 +31,11 @@ function App() {
 
   useEffect(() => {
     //WILL RUN IMMEDIATELY ONCE
+    console.log(`Getting INIT shoutouts at ${new Date()}`);
     getShoutouts();
     const timer = setTimeout(() => {
       //WILL RUN EVERY 24 HOURS (86400 seconds)
-      console.log(`getting shoutouts at ${new Date()}`);
+      console.log(`Getting NEW shoutouts at ${new Date()}`);
       getShoutouts();
     }, 86400000);
     return () => clearTimeout(timer);

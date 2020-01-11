@@ -30,14 +30,12 @@ const Slide = props => {
         // data-rel-z="1w"
         // data-scale="1"
         // data-rotate="45"
-        id={slugify(values[1])}
-      >
+        id={slugify(values[2])}>
         <Grid
           container
           className="slide-content"
           justify="space-evenly"
-          alignItems="stretch"
-        >
+          alignItems="stretch">
           <Grid item xs={12}>
             <Grid item>
               <img

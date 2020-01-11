@@ -24,7 +24,7 @@ const randColor = () => {
 };
 
 const SlideShow = ({ data }) => {
-  console.log(data);
+  // console.log(data);
   return (
     <div id="impress" data-autoplay="9">
       {/* 
